@@ -1,5 +1,9 @@
 const {Key} = require('selenium-webdriver')
-const BasePage = require('../page/basepage')
+const BasePage = require('./BasePage')
+
+//Seletores
+let searchFieldByName = 'q'
+
 
 class HomePage extends BasePage 
 {
@@ -8,9 +12,8 @@ class HomePage extends BasePage
     }
 
     async searchText(text){
-        let searchFieldName = 'q'
-        await this.writeTextByName(searchFieldName, text)
-        await this.writeTextByName(searchFieldName, Key.RETURN)
+        await this.writeTextByName(searchFieldByName, text)
+        await this.writeTextByName(searchFieldByName, Key.RETURN)
     }
 
 }

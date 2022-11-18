@@ -25,6 +25,10 @@ class BasePage{
         await driver.findElement(By.name(name)).sendKeys(text)
     }
 
+    async getTitle(){
+        return driver.getTitle()
+    }
+
     async closeDriver(){
         await driver.quit()
     }

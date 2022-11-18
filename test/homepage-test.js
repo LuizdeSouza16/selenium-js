@@ -1,3 +1,4 @@
+const assert = require('assert')
 const HomePage = require('../support/page/homepage')
 
 describe('Describe', function(){
@@ -10,7 +11,9 @@ describe('Describe', function(){
 
         await HomePage.goUrl("https://google.com.br")
         await HomePage.searchText(searchString)
-    
+        
+        let title = await HomePage.getTitle()
+        assert.equal(title, "Automation testing with selenium and JS - Pesquisa Google")
     })
 
     afterEach(async function(){
